@@ -20,7 +20,7 @@ class Tutor: NSObject {
     
     
     init(dict: NSDictionary) {
-        <#statements#>
+        
     }
     
     func getRating(){
