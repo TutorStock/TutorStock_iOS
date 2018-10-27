@@ -16,6 +16,9 @@
 		F68AD6D52184EDB800BA0701 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6D42184EDB800BA0701 /* HomeViewController.swift */; };
 		F68AD6D72184F78200BA0701 /* FindTutorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6D62184F78200BA0701 /* FindTutorViewController.swift */; };
 		F68AD6DE218505E800BA0701 /* Tutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6DD218505E800BA0701 /* Tutor.swift */; };
+		F68AD6E02185113200BA0701 /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6DF2185113200BA0701 /* TutorCell.swift */; };
+		F68AD6E221851DDB00BA0701 /* TutorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */; };
+		F68AD6E42185207100BA0701 /* RequestMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +35,9 @@
 		F68AD6D42184EDB800BA0701 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		F68AD6D62184F78200BA0701 /* FindTutorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindTutorViewController.swift; sourceTree = "<group>"; };
 		F68AD6DD218505E800BA0701 /* Tutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tutor.swift; sourceTree = "<group>"; };
+		F68AD6DF2185113200BA0701 /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
+		F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDetailViewController.swift; sourceTree = "<group>"; };
+		F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMeetingViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +93,7 @@
 				F68AD6D82184F9AE00BA0701 /* ViewControllers */,
 				F68AD6C02184DF5A00BA0701 /* AppDelegate.swift */,
 				F68AD6C42184DF5A00BA0701 /* Main.storyboard */,
+				F68AD6DF2185113200BA0701 /* TutorCell.swift */,
 				F68AD6D22184EA5500BA0701 /* GoogleService-Info.plist */,
 				F68AD6C72184DF5B00BA0701 /* Assets.xcassets */,
 				F68AD6DD218505E800BA0701 /* Tutor.swift */,
@@ -101,6 +108,8 @@
 			children = (
 				F68AD6D62184F78200BA0701 /* FindTutorViewController.swift */,
 				F68AD6D42184EDB800BA0701 /* HomeViewController.swift */,
+				F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */,
+				F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -238,8 +247,11 @@
 			files = (
 				F68AD6DE218505E800BA0701 /* Tutor.swift in Sources */,
 				F68AD6C12184DF5A00BA0701 /* AppDelegate.swift in Sources */,
+				F68AD6E02185113200BA0701 /* TutorCell.swift in Sources */,
 				F68AD6D72184F78200BA0701 /* FindTutorViewController.swift in Sources */,
+				F68AD6E221851DDB00BA0701 /* TutorDetailViewController.swift in Sources */,
 				F68AD6D52184EDB800BA0701 /* HomeViewController.swift in Sources */,
+				F68AD6E42185207100BA0701 /* RequestMeetingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
