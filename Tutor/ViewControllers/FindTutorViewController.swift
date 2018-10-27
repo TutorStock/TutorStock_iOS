@@ -13,9 +13,10 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
     
     var location: String = ""
     var subject: String = ""
+    var tutors: [Tutor]!
     
     var db: Firestore!
-
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,24 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TutorCell", for: indexPath)
         return cell
+    }
+    
+    func getTutors(){
+        let ref_tut_ids = db.collection("subjects_tutors_ids").whereField("subject", isEqualTo: self.subject).whereField("city", isEqualTo: self.location)
+        
+        var tut_ids: [String] = []
+        ref_tut_ids.getDocuments { (querySnapshot, error) in
+            for doc in (querySnapshot?.documents)!{
+                tut_ids.append(doc.data()["id"] as! String)
+            }
+        }
+        let ref = db.collection("tutors")
+        for id in tut_ids{
+            let ref = db.collection("tutors").document(id)
+            ref.getDocument { (docSnapshot, error) in
+                self.tutors.append(Tutor(dict: docSnapshot!.data() as! NSDictionary))
+            }
+        }
     }
     
 

@@ -20,7 +20,13 @@ class Tutor: NSObject {
     
     
     init(dict: NSDictionary) {
-        
+        self.firstName = dict["first_name"] as? String
+        self.lastName = dict["last_name"] as? String
+        self.email = dict["email"] as? String
+        self.phoneNumber = dict["phone_number"] as? String
+        self.bio = dict["bio"] as? String
+        self.subjects = dict["subjects"] as? [String]
+        self.time = dict["time_available"] as? String
     }
     
     func getRating(){
