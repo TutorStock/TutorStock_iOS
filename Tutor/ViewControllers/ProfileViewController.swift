@@ -49,6 +49,11 @@ class ProfileViewController: UIViewController {
         }
         
     }
+    @IBAction func dismissButton(_ sender: Any) {
+        self.dismiss(animated: true) {
+            
+        }
+    }
     
     // MARK: - Navigation
 

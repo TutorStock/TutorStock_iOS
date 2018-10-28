@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import MBProgressHUD
 
 class FindTutorViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -43,6 +44,7 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func getTutors(){
+        MBProgressHUD.showAdded(to: self.view, animated: true)
         let ref_tut_ids = db.collection("subjects_tutors_ids").whereField("subject", isEqualTo: self.subject).whereField("city", isEqualTo: self.location)
         
         var tut_ids: [String] = []
@@ -62,6 +64,7 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
             ref.getDocument { (docSnapshot, error) in
                 self.tutors.append(Tutor(dict: docSnapshot!.data()! as NSDictionary))
                 if index == tut_ids.count - 1{
+                    MBProgressHUD.hide(for: self.view, animated: true)
                     self.tableView.reloadData()
                 }
                 index += 1
