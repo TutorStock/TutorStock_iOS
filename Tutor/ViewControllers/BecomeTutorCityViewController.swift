@@ -86,6 +86,7 @@ class BecomeTutorCityViewController: UIViewController, UIPickerViewDelegate, UIP
                     //you are now a tutor
                 }
             }
+            db.collection("students").document((user?.uid)!).updateData(["is_tutor": true])
         }
         else{
             //alert empty fields
