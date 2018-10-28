@@ -16,6 +16,7 @@ class TutorDetailViewController: UIViewController {
     @IBOutlet weak var timeLabel: UILabel!
     
     var tutor: Tutor!
+    var subject: String!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,6 +41,7 @@ class TutorDetailViewController: UIViewController {
         if segue.identifier == "SegueToRequest"{
             let requestMeetingVC = segue.destination as! RequestMeetingViewController
             requestMeetingVC.tutor = self.tutor
+            requestMeetingVC.subject = self.subject
         }
     }
     

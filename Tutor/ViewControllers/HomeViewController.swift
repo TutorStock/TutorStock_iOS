@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
@@ -16,6 +17,7 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
     
     var subjects: [String] = []
     var cities: [String] = []
+    var isTutor: Bool!
     var subjectPicker: UIPickerView!
     var cityPicker: UIPickerView!
 
@@ -23,10 +25,13 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let user = Auth.auth().currentUser
+        
         db = Firestore.firestore()
 
         getSubjects()
         getCities()
+        getUserInfo()
         
         subjectPicker = UIPickerView()
         subjectPicker.tag = 1
@@ -116,7 +121,22 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             self.locationTextField.text = self.cities[0]
         }
     }
+    @IBAction func onTap(_ sender: Any) {
+        self.view.endEditing(true)
+    }
     
+    @IBAction func requestsButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueToRequests", sender: nil)
+    }
+    
+    func getUserInfo(){
+        let user = Auth.auth().currentUser
+        db.collection("students").document((user?.uid)!).getDocument { (docSnap, error) in
+            if error == nil {
+                self.isTutor = docSnap?.data()?["is_tutor"] as? Bool
+            }
+        }
+    }
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -127,6 +147,10 @@ class HomeViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDa
             let findTutorVC = segue.destination as! FindTutorViewController
             findTutorVC.location = self.locationTextField.text!
             findTutorVC.subject = self.subjectTextField.text!
+        }
+        else if segue.identifier ==  "SegueToRequests"{
+            let requestsVC = segue.destination as! RequestsViewController
+            requestsVC.isTutor = self.isTutor
         }
     }
     

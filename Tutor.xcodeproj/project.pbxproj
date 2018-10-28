@@ -19,6 +19,17 @@
 		F68AD6E02185113200BA0701 /* TutorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6DF2185113200BA0701 /* TutorCell.swift */; };
 		F68AD6E221851DDB00BA0701 /* TutorDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */; };
 		F68AD6E42185207100BA0701 /* RequestMeetingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */; };
+		F6C33501218536C20030D27D /* RequestsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C33500218536C20030D27D /* RequestsViewController.swift */; };
+		F6C3350321853A580030D27D /* RequestDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350221853A580030D27D /* RequestDetailViewController.swift */; };
+		F6C3350521853B8A0030D27D /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350421853B8A0030D27D /* Request.swift */; };
+		F6C33507218549DA0030D27D /* RequestCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C33506218549DA0030D27D /* RequestCell.swift */; };
+		F6C3350A21855DED0030D27D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350921855DED0030D27D /* ProfileViewController.swift */; };
+		F6C3350C2185B3A20030D27D /* BecomeTutorBioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350B2185B3A20030D27D /* BecomeTutorBioViewController.swift */; };
+		F6C3350E2185B3C10030D27D /* BecomeTutorSubjectsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350D2185B3C00030D27D /* BecomeTutorSubjectsViewController.swift */; };
+		F6C335102185B3F90030D27D /* BecomeTutorCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C3350F2185B3F90030D27D /* BecomeTutorCityViewController.swift */; };
+		F6C335122185B52F0030D27D /* CityCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C335112185B52F0030D27D /* CityCell.swift */; };
+		F6D6852F21852A6700116753 /* LogInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6852E21852A6700116753 /* LogInViewController.swift */; };
+		F6D6853121852A7000116753 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D6853021852A7000116753 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +49,17 @@
 		F68AD6DF2185113200BA0701 /* TutorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorCell.swift; sourceTree = "<group>"; };
 		F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorDetailViewController.swift; sourceTree = "<group>"; };
 		F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestMeetingViewController.swift; sourceTree = "<group>"; };
+		F6C33500218536C20030D27D /* RequestsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestsViewController.swift; sourceTree = "<group>"; };
+		F6C3350221853A580030D27D /* RequestDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestDetailViewController.swift; sourceTree = "<group>"; };
+		F6C3350421853B8A0030D27D /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		F6C33506218549DA0030D27D /* RequestCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestCell.swift; sourceTree = "<group>"; };
+		F6C3350921855DED0030D27D /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		F6C3350B2185B3A20030D27D /* BecomeTutorBioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeTutorBioViewController.swift; sourceTree = "<group>"; };
+		F6C3350D2185B3C00030D27D /* BecomeTutorSubjectsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeTutorSubjectsViewController.swift; sourceTree = "<group>"; };
+		F6C3350F2185B3F90030D27D /* BecomeTutorCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BecomeTutorCityViewController.swift; sourceTree = "<group>"; };
+		F6C335112185B52F0030D27D /* CityCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityCell.swift; sourceTree = "<group>"; };
+		F6D6852E21852A6700116753 /* LogInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogInViewController.swift; sourceTree = "<group>"; };
+		F6D6853021852A7000116753 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,12 +113,14 @@
 			isa = PBXGroup;
 			children = (
 				F68AD6D82184F9AE00BA0701 /* ViewControllers */,
+				F6C3350821854DF50030D27D /* Cells */,
 				F68AD6C02184DF5A00BA0701 /* AppDelegate.swift */,
 				F68AD6C42184DF5A00BA0701 /* Main.storyboard */,
-				F68AD6DF2185113200BA0701 /* TutorCell.swift */,
+				F6C335112185B52F0030D27D /* CityCell.swift */,
 				F68AD6D22184EA5500BA0701 /* GoogleService-Info.plist */,
 				F68AD6C72184DF5B00BA0701 /* Assets.xcassets */,
 				F68AD6DD218505E800BA0701 /* Tutor.swift */,
+				F6C3350421853B8A0030D27D /* Request.swift */,
 				F68AD6C92184DF5B00BA0701 /* LaunchScreen.storyboard */,
 				F68AD6CC2184DF5B00BA0701 /* Info.plist */,
 			);
@@ -109,9 +133,26 @@
 				F68AD6D62184F78200BA0701 /* FindTutorViewController.swift */,
 				F68AD6D42184EDB800BA0701 /* HomeViewController.swift */,
 				F68AD6E121851DDB00BA0701 /* TutorDetailViewController.swift */,
+				F6D6852E21852A6700116753 /* LogInViewController.swift */,
+				F6C3350921855DED0030D27D /* ProfileViewController.swift */,
+				F6D6853021852A7000116753 /* SignUpViewController.swift */,
 				F68AD6E32185207100BA0701 /* RequestMeetingViewController.swift */,
+				F6C33500218536C20030D27D /* RequestsViewController.swift */,
+				F6C3350D2185B3C00030D27D /* BecomeTutorSubjectsViewController.swift */,
+				F6C3350B2185B3A20030D27D /* BecomeTutorBioViewController.swift */,
+				F6C3350221853A580030D27D /* RequestDetailViewController.swift */,
+				F6C3350F2185B3F90030D27D /* BecomeTutorCityViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		F6C3350821854DF50030D27D /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F6C33506218549DA0030D27D /* RequestCell.swift */,
+				F68AD6DF2185113200BA0701 /* TutorCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,6 +233,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Tutor/Pods-Tutor-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/gRPC/GRPCClient.framework",
@@ -205,6 +247,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GRPCClient.framework",
@@ -245,13 +288,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6C33501218536C20030D27D /* RequestsViewController.swift in Sources */,
+				F6C3350521853B8A0030D27D /* Request.swift in Sources */,
+				F6C3350321853A580030D27D /* RequestDetailViewController.swift in Sources */,
 				F68AD6DE218505E800BA0701 /* Tutor.swift in Sources */,
+				F6C3350C2185B3A20030D27D /* BecomeTutorBioViewController.swift in Sources */,
+				F6C3350A21855DED0030D27D /* ProfileViewController.swift in Sources */,
 				F68AD6C12184DF5A00BA0701 /* AppDelegate.swift in Sources */,
 				F68AD6E02185113200BA0701 /* TutorCell.swift in Sources */,
 				F68AD6D72184F78200BA0701 /* FindTutorViewController.swift in Sources */,
+				F6D6852F21852A6700116753 /* LogInViewController.swift in Sources */,
 				F68AD6E221851DDB00BA0701 /* TutorDetailViewController.swift in Sources */,
+				F6D6853121852A7000116753 /* SignUpViewController.swift in Sources */,
 				F68AD6D52184EDB800BA0701 /* HomeViewController.swift in Sources */,
+				F6C3350E2185B3C10030D27D /* BecomeTutorSubjectsViewController.swift in Sources */,
+				F6C335122185B52F0030D27D /* CityCell.swift in Sources */,
 				F68AD6E42185207100BA0701 /* RequestMeetingViewController.swift in Sources */,
+				F6C335102185B3F90030D27D /* BecomeTutorCityViewController.swift in Sources */,
+				F6C33507218549DA0030D27D /* RequestCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

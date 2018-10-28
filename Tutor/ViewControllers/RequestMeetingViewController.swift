@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseFirestore
+import FirebaseAuth
 
 class RequestMeetingViewController: UIViewController {
 
@@ -19,6 +20,7 @@ class RequestMeetingViewController: UIViewController {
     var date: Date!
     var tutor: Tutor!
     var db: Firestore!
+    var subject: String!
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
@@ -62,22 +64,40 @@ class RequestMeetingViewController: UIViewController {
         }
     }
     @IBAction func requestMeetingButton(_ sender: Any) {
-        let user = "sdkfj"
-        let request = [
-            "message": self.messageTextField.text,
-            "date": self.date,
-            "tutor_id": self.tutor.id,
-            "user_id": user,
-            ] as [String : Any]
-        let ref = db.collection("requests").addDocument(data: request) { (error) in
-            if error == nil{
-                //segue back home
-                print("done bro")
+        let user = Auth.auth().currentUser
+        
+        db.collection("students").document((user?.uid)!).getDocument { (docSnap, error) in
+            let firstName = docSnap?.data()!["first_name"] as! String
+            let lastName = docSnap?.data()!["last_name"] as! String
+            
+            let name = firstName + " " + lastName
+            let ref = self.db.collection("requests").document()
+            let request = [
+                "message": self.messageTextField.text,
+                "date": self.date,
+                "tutor_id": self.tutor.id,
+                "user_id": user?.uid,
+                "approval": 0,
+                "name": name,
+                "subject": self.subject,
+                "id": ref.documentID
+                ] as [String : Any]
+           
+            ref.setData(request) { (error) in
+                if error == nil{
+                    //segue back home
+                    print("done bro")
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
             }
         }
+        
     }
     
-
+    @IBAction func onTap(_ sender: Any) {
+        self.view.endEditing(true)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -83,6 +83,7 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
             let tutor = self.tutors[indexPath!.row]
             let tutorDetailVC = segue.destination as! TutorDetailViewController
             tutorDetailVC.tutor = tutor
+            tutorDetailVC.subject = self.subject
         }
     }
     
