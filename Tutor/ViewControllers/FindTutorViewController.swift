@@ -40,7 +40,9 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
         let tutor = self.tutors[indexPath.row]
         cell.nameLabel.text = tutor.getName()
         cell.subjectsLabel.text = tutor.getSubjects()
-        cell.ratingLabel.text = "\(tutor.rating!)/5"
+        cell.ratingLabel.text = ""
+        cell.priceLabel.text = tutor.getPrice()
+        cell.selectionStyle = .none
         return cell
     }
     

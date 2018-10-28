@@ -63,8 +63,11 @@ class RequestDetailViewController: UIViewController {
                     self.approvalStatusLabel.text = "Waiting for tutor to review"
                 }
                 else if approval == 1 {
+                    let user = Auth.auth().currentUser
                     self.approvalStatusLabel.text = "Tutor has approved the meeting"
-                    self.ratingButton.isHidden = false
+                    if self.request.tutor_id != user?.uid{
+                        self.ratingButton.isHidden = false
+                    }
                 }
                 else if approval == -1 {
                     self.approvalStatusLabel.text = "Tutor has rejected meeting"

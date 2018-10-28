@@ -22,11 +22,12 @@ class RatingViewController: UIViewController{
         
         cosmosView.didFinishTouchingCosmos = {
             rating in
+            let fs = Firestore.firestore()
             let rating = [
                 "tutor_id": self.tutor_id,
                 "rating": rating
                 ] as [String : Any]
-            self.db.collection("ratings").addDocument(data: rating, completion: { (error) in
+            fs.collection("ratings").addDocument(data: rating, completion: { (error) in
                 self.dismiss(animated: true, completion: {
                     
                 })

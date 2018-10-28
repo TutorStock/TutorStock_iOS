@@ -14,6 +14,8 @@ class TutorDetailViewController: UIViewController {
     @IBOutlet weak var subjectsLabel: UILabel!
     @IBOutlet weak var bioLabel: UILabel!
     @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var ratingLabel: UILabel!
     
     var tutor: Tutor!
     var subject: String!
@@ -24,6 +26,13 @@ class TutorDetailViewController: UIViewController {
         self.subjectsLabel.text = tutor.getSubjects()
         self.bioLabel.text = tutor.bio
         self.timeLabel.text = tutor.time
+        self.priceLabel.text = tutor.getPrice()
+        if tutor.rating == -1{
+            self.ratingLabel.text = "No reviews yet"
+        }
+        else{
+            self.ratingLabel.text = "\(tutor.rating!)/5"
+        }
         // Do any additional setup after loading the view.
     }
     

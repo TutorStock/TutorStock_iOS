@@ -60,7 +60,7 @@ class BecomeTutorCityViewController: UIViewController, UIPickerViewDelegate, UIP
             "phone_number": self.userInfo["phone_number"],
             "email": self.userInfo["email"],
             "time_available": timeTextField.text!,
-            "price": moneyTextField.text!,
+            "price": Int(moneyTextField.text!),
             "subjects": self.selectedSubjects,
             "tutor_id": user?.uid,
             "city": cityTextField.text!,

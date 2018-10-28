@@ -29,17 +29,22 @@ class SignUpViewController: UIViewController {
     
     @IBAction func signUpButton(_ sender: Any) {
         Auth.auth().createUser(withEmail: emailTextField.text!, password: passwordTextField.text!) { (result, error) in
-            let user = result?.user
-            let userInfo = [
-                "first_name": self.firstNameTextField.text!,
-                "last_name": self.lastNameTextField.text!,
-                "email": self.emailTextField.text!,
-                "phone_number": self.phoneNumberTextField.text!,
-                "is_tutor": false
-                ] as [String : Any]
+            if error == nil{
+                let user = result?.user
+                let userInfo = [
+                    "first_name": self.firstNameTextField.text!,
+                    "last_name": self.lastNameTextField.text!,
+                    "email": self.emailTextField.text!,
+                    "phone_number": self.phoneNumberTextField.text!,
+                    "is_tutor": false
+                    ] as [String : Any]
             
-            self.db.collection("students").document(user!.uid).setData(userInfo)
-            self.performSegue(withIdentifier: "SegueToHome", sender: nil)
+                self.db.collection("students").document(user!.uid).setData(userInfo)
+                self.performSegue(withIdentifier: "SegueToHome", sender: nil)
+            }
+            else{
+                print(error)
+            }
         }
     }
     

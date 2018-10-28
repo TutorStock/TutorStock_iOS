@@ -10,6 +10,7 @@ import UIKit
 
 class TutorCell: UITableViewCell {
 
+    @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var ratingLabel: UILabel!
     @IBOutlet weak var subjectsLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
