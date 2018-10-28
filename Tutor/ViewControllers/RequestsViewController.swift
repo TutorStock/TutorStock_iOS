@@ -49,8 +49,9 @@ class RequestsViewController: UIViewController, UITableViewDataSource, UITableVi
     
     func getRequests(){
         let user = Auth.auth().currentUser
+        let new_requests: [Request] = []
         var ref = db.collection("requests").whereField("user_id", isEqualTo: user?.uid)
-        ref.addSnapshotListener { (querySnapshot, error) in
+        ref.getDocuments{ (querySnapshot, error) in
             for doc in (querySnapshot?.documents)!{
                 self.requests.append(Request(dict: doc.data() as NSDictionary))
             }
@@ -58,7 +59,7 @@ class RequestsViewController: UIViewController, UITableViewDataSource, UITableVi
             self.tableView.reloadData()
         }
         ref = db.collection("requests").whereField("tutor_id", isEqualTo: user?.uid)
-        ref.addSnapshotListener { (querySnapshot, error) in
+        ref.getDocuments { (querySnapshot, error) in
             for doc in (querySnapshot?.documents)! {
                 self.requests.append(Request(dict: doc.data() as NSDictionary))
             }

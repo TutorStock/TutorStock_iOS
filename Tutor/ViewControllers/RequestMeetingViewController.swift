@@ -64,34 +64,37 @@ class RequestMeetingViewController: UIViewController {
         }
     }
     @IBAction func requestMeetingButton(_ sender: Any) {
-        let user = Auth.auth().currentUser
-        
-        db.collection("students").document((user?.uid)!).getDocument { (docSnap, error) in
-            let firstName = docSnap?.data()!["first_name"] as! String
-            let lastName = docSnap?.data()!["last_name"] as! String
-            
-            let name = firstName + " " + lastName
-            let ref = self.db.collection("requests").document()
-            let request = [
-                "message": self.messageTextField.text,
-                "date": self.date,
-                "tutor_id": self.tutor.id,
-                "user_id": user?.uid,
-                "approval": 0,
-                "name": name,
-                "subject": self.subject,
-                "id": ref.documentID
-                ] as [String : Any]
-           
-            ref.setData(request) { (error) in
-                if error == nil{
-                    //segue back home
-                    print("done bro")
-                    self.navigationController?.popToRootViewController(animated: true)
+        if messageTextField.text != "" && timeTextField.text != ""{
+            let user = Auth.auth().currentUser
+            db.collection("students").document((user?.uid)!).getDocument { (docSnap, error) in
+                let firstName = docSnap?.data()!["first_name"] as! String
+                let lastName = docSnap?.data()!["last_name"] as! String
+                
+                let name = firstName + " " + lastName
+                let ref = self.db.collection("requests").document()
+                let request = [
+                    "message": self.messageTextField.text,
+                    "date": self.date,
+                    "tutor_id": self.tutor.id,
+                    "user_id": user?.uid,
+                    "approval": 0,
+                    "name": name,
+                    "subject": self.subject,
+                    "id": ref.documentID
+                    ] as [String : Any]
+               
+                ref.setData(request) { (error) in
+                    if error == nil{
+                        //segue back home
+                        print("done bro")
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
                 }
             }
         }
-        
+        else{
+            //alert empty fields
+        }
     }
     
     @IBAction func onTap(_ sender: Any) {

@@ -252,8 +252,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How much money do you want per hour?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-ag-pHe">
-                                <rect key="frame" x="16" y="175" width="313" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's your rate?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8G3-ag-pHe">
+                                <rect key="frame" x="16" y="175" width="134" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -653,6 +653,7 @@
                         <outlet property="phoneLabel" destination="a8Z-Z8-1Tk" id="hoi-JQ-ohQ"/>
                         <outlet property="ratingButton" destination="afQ-UO-xEl" id="cdV-Vq-te2"/>
                         <outlet property="rejectButton" destination="2iW-Og-Lu5" id="Nay-kj-vHa"/>
+                        <outlet property="studentInfoLabel" destination="ZJz-af-VD3" id="jAt-PT-aUC"/>
                         <outlet property="subjectLabel" destination="MQS-mM-LJI" id="HgG-3J-TNF"/>
                         <segue destination="Il2-zU-5oi" kind="presentation" identifier="SegueToRating" id="szw-gf-Uxg"/>
                     </connections>
@@ -1252,6 +1253,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="SAg-DX-Nmb"/>
+        <segue reference="QaK-t5-Fx6"/>
     </inferredMetricsTieBreakers>
 </document>

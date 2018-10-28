@@ -54,36 +54,41 @@ class BecomeTutorCityViewController: UIViewController, UIPickerViewDelegate, UIP
     
     @IBAction func doneButton(_ sender: Any) {
         let user = Auth.auth().currentUser
-        let tutor = [
-            "first_name": self.userInfo["first_name"],
-            "last_name": self.userInfo["last_name"],
-            "phone_number": self.userInfo["phone_number"],
-            "email": self.userInfo["email"],
-            "time_available": timeTextField.text!,
-            "price": Int(moneyTextField.text!),
-            "subjects": self.selectedSubjects,
-            "tutor_id": user?.uid,
-            "city": cityTextField.text!,
-            "bio": bio,
-        ]
-        
-        db.collection("tutors").document((user?.uid)!).setData(tutor as [String : Any]) { (error) in
-            if error == nil {
-                for subject in self.selectedSubjects{
-                    let sub_id = [
-                        "id": user?.uid,
-                        "subject": subject,
-                        "city": self.cityTextField.text!
-                        ] as [String : Any]
-                    self.db.collection("subjects_tutors_ids").addDocument(data: sub_id, completion: { (error) in
-                        if error == nil{
-                        }
-                    })
+        if timeTextField.text != "" && moneyTextField.text != "" && cityTextField.text != ""{
+            let tutor = [
+                "first_name": self.userInfo["first_name"],
+                "last_name": self.userInfo["last_name"],
+                "phone_number": self.userInfo["phone_number"],
+                "email": self.userInfo["email"],
+                "time_available": timeTextField.text!,
+                "price": Int(moneyTextField.text!),
+                "subjects": self.selectedSubjects,
+                "tutor_id": user?.uid,
+                "city": cityTextField.text!,
+                "bio": bio,
+            ]
+            
+            db.collection("tutors").document((user?.uid)!).setData(tutor as [String : Any]) { (error) in
+                if error == nil {
+                    for subject in self.selectedSubjects{
+                        let sub_id = [
+                            "id": user?.uid,
+                            "subject": subject,
+                            "city": self.cityTextField.text!
+                            ] as [String : Any]
+                        self.db.collection("subjects_tutors_ids").addDocument(data: sub_id, completion: { (error) in
+                            if error == nil{
+                            }
+                        })
+                    }
+                    self.performSegue(withIdentifier: "SegueToHome", sender: nil)
+                    //performsegue home
+                    //you are now a tutor
                 }
-                self.performSegue(withIdentifier: "SegueToHome", sender: nil)
-                //performsegue home
-                //you are now a tutor
             }
+        }
+        else{
+            //alert empty fields
         }
     }
     func getCities(){

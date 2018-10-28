@@ -23,6 +23,9 @@ class RequestDetailViewController: UIViewController {
     
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var emailLabel: UILabel!
+    
+    @IBOutlet weak var studentInfoLabel: UILabel!
+    
     var request: Request!
     var db: Firestore!
     var approval: Int!
@@ -42,6 +45,7 @@ class RequestDetailViewController: UIViewController {
         if request.tutor_id != user?.uid{
             approveButton.isHidden = true
             rejectButton.isHidden = true
+            studentInfoLabel.isHidden = true
         }
         // Do any additional setup after loading the view.
     }
@@ -93,6 +97,7 @@ class RequestDetailViewController: UIViewController {
                 self.phoneLabel.text = docSnap?.data()!["phone_number"] as! String
                 self.emailLabel.isHidden = false
                 self.phoneLabel.isHidden = false
+                self.studentInfoLabel.isHidden = false
             }
         }
     }

@@ -31,7 +31,7 @@ class Request: NSObject {
     }
     func getDate() -> String{
         let formatter = DateFormatter()
-        formatter.dateFormat = "dd-MM-yyyy h:mm"
+        formatter.dateFormat = "dd MMM yyyy 'at' h:mm a"
         return formatter.string(from: self.date)
     }
 }
