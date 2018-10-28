@@ -21,6 +21,8 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var rejectButton: UIButton!
     @IBOutlet weak var ratingButton: UIButton!
     
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var emailLabel: UILabel!
     var request: Request!
     var db: Firestore!
     var approval: Int!
@@ -29,6 +31,9 @@ class RequestDetailViewController: UIViewController {
         let user = Auth.auth().currentUser
         db = Firestore.firestore()
         ratingButton.isHidden = true
+        emailLabel.isHidden = true
+        phoneLabel.isHidden = true
+        
         nameLabel.text = request.name
         subjectLabel.text = request.subject
         dateTimeLabel.text = request.getDate()
@@ -66,13 +71,28 @@ class RequestDetailViewController: UIViewController {
                     let user = Auth.auth().currentUser
                     self.approvalStatusLabel.text = "Tutor has approved the meeting"
                     if self.request.tutor_id != user?.uid{
+                        self.approvalStatusLabel.text = "Tutor has approved the meeting.\nYou will be contacted soon by the tutor."
                         self.ratingButton.isHidden = false
+                    }
+                    else{
+                        self.setStudentInfo()
                     }
                 }
                 else if approval == -1 {
                     self.approvalStatusLabel.text = "Tutor has rejected meeting"
                 }
                 self.approval = approval
+            }
+        }
+    }
+    
+    func setStudentInfo(){
+        db.collection("students").document(self.request.user_id).getDocument { (docSnap, error) in
+            if error == nil {
+                self.emailLabel.text = docSnap?.data()!["email"] as! String
+                self.phoneLabel.text = docSnap?.data()!["phone_number"] as! String
+                self.emailLabel.isHidden = false
+                self.phoneLabel.isHidden = false
             }
         }
     }

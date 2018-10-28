@@ -42,7 +42,8 @@ class RequestsViewController: UIViewController, UITableViewDataSource, UITableVi
         let request = self.requests[indexPath.row]
         cell.nameLabel.text = request.name
         cell.subjectLabel.text = request.subject
-        cell.dateTimeLabel.text = request.getDate() // TODO: format date
+        cell.dateTimeLabel.text = request.getDate()
+        cell.selectionStyle = .none
         return cell
     }
     

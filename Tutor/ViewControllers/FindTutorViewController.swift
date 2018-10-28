@@ -26,6 +26,8 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
         db = Firestore.firestore()
         tableView.dataSource = self
         tableView.delegate = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 122
         
         getTutors()
         // Do any additional setup after loading the view.
@@ -40,7 +42,6 @@ class FindTutorViewController: UIViewController, UITableViewDataSource, UITableV
         let tutor = self.tutors[indexPath.row]
         cell.nameLabel.text = tutor.getName()
         cell.subjectsLabel.text = tutor.getSubjects()
-        cell.ratingLabel.text = ""
         cell.priceLabel.text = tutor.getPrice()
         cell.selectionStyle = .none
         return cell
