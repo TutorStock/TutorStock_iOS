@@ -183,7 +183,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Subject" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ERy-tO-TXW">
-                                                    <rect key="frame" x="15" y="29" width="59" height="21"/>
+                                                    <rect key="frame" x="15" y="29" width="59" height="21.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -556,6 +556,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iW-Og-Lu5">
+                                <rect key="frame" x="16" y="452" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Reject"/>
+                                <connections>
+                                    <action selector="rejectButton:" destination="M2Y-E3-2Dw" eventType="touchUpInside" id="V0a-rY-Ne3"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ves-lF-eU1">
                                 <rect key="frame" x="305" y="20" width="54" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -564,12 +572,12 @@
                                     <action selector="dismissButton:" destination="M2Y-E3-2Dw" eventType="touchUpInside" id="9zX-z5-i5U"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iW-Og-Lu5">
-                                <rect key="frame" x="16" y="452" width="43" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="afQ-UO-xEl">
+                                <rect key="frame" x="140" y="617" width="96" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Reject"/>
+                                <state key="normal" title="Leave a rating"/>
                                 <connections>
-                                    <action selector="rejectButton:" destination="M2Y-E3-2Dw" eventType="touchUpInside" id="V0a-rY-Ne3"/>
+                                    <action selector="ratingButton:" destination="M2Y-E3-2Dw" eventType="touchUpInside" id="q0F-Fj-xPS"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -582,6 +590,7 @@
                         <outlet property="dateTimeLabel" destination="A94-VD-iGm" id="9al-yE-cgN"/>
                         <outlet property="messageLabel" destination="bGN-SW-9jn" id="3od-pu-ak3"/>
                         <outlet property="nameLabel" destination="gal-0v-sT1" id="xKS-fs-09d"/>
+                        <outlet property="ratingButton" destination="afQ-UO-xEl" id="cdV-Vq-te2"/>
                         <outlet property="rejectButton" destination="2iW-Og-Lu5" id="Nay-kj-vHa"/>
                         <outlet property="subjectLabel" destination="MQS-mM-LJI" id="HgG-3J-TNF"/>
                         <segue destination="Il2-zU-5oi" kind="presentation" identifier="SegueToReason" id="szw-gf-Uxg"/>
@@ -591,16 +600,46 @@
             </objects>
             <point key="canvasLocation" x="2072.8000000000002" y="817.24137931034488"/>
         </scene>
-        <!--View Controller-->
+        <!--Rating View Controller-->
         <scene sceneID="ae5-RI-yDm">
             <objects>
-                <viewController id="Il2-zU-5oi" sceneMemberID="viewController">
+                <viewController id="Il2-zU-5oi" customClass="RatingViewController" customModule="Tutor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="wrJ-Tj-6oo">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qel-il-gE9" customClass="CosmosView" customModule="Cosmos">
+                                <rect key="frame" x="128" y="210" width="119" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="rating">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YkR-aW-pXe">
+                                <rect key="frame" x="312" y="20" width="48" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <action selector="cancelButton:" destination="Il2-zU-5oi" eventType="touchUpInside" id="Mrx-zz-bBA"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leave a rating!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOD-UU-7VR">
+                                <rect key="frame" x="131" y="181" width="112" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="B1E-CF-B9f"/>
                     </view>
+                    <connections>
+                        <outlet property="cosmosView" destination="qel-il-gE9" id="KH8-QZ-sxz"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LtO-cR-iGx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -618,15 +657,15 @@
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TutorCell" rowHeight="168" id="9lf-CA-LkQ" customClass="TutorCell" customModule="Tutor" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="168"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TutorCell" rowHeight="120" id="9lf-CA-LkQ" customClass="TutorCell" customModule="Tutor" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="120"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="9lf-CA-LkQ" id="iu4-4x-NaH">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="167.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="119.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k4H-re-2oI">
-                                                    <rect key="frame" x="15" y="11" width="143" height="37"/>
+                                                    <rect key="frame" x="15" y="11" width="143" height="24"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="143" id="yrP-bj-nMK"/>
                                                     </constraints>
@@ -634,8 +673,14 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ic4-y0-75A">
+                                                    <rect key="frame" x="15" y="56" width="49" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="subjects" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEj-fP-UXe">
-                                                    <rect key="frame" x="15" y="120" width="58" height="21"/>
+                                                    <rect key="frame" x="15" y="85" width="58" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="0mG-Ay-Aar"/>
                                                     </constraints>
@@ -648,12 +693,15 @@
                                                 <constraint firstItem="k4H-re-2oI" firstAttribute="leading" secondItem="BEj-fP-UXe" secondAttribute="leading" id="23C-0D-k5T"/>
                                                 <constraint firstItem="k4H-re-2oI" firstAttribute="top" secondItem="iu4-4x-NaH" secondAttribute="topMargin" id="5e8-cR-lAv"/>
                                                 <constraint firstItem="k4H-re-2oI" firstAttribute="leading" secondItem="iu4-4x-NaH" secondAttribute="leadingMargin" id="7I2-5a-d9W"/>
-                                                <constraint firstItem="BEj-fP-UXe" firstAttribute="top" secondItem="k4H-re-2oI" secondAttribute="bottom" constant="72" id="cn9-f0-rYY"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="BEj-fP-UXe" secondAttribute="bottom" constant="16" id="dXE-PX-swm"/>
+                                                <constraint firstItem="BEj-fP-UXe" firstAttribute="top" secondItem="k4H-re-2oI" secondAttribute="bottom" constant="50" id="cn9-f0-rYY"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="BEj-fP-UXe" secondAttribute="bottom" constant="3" id="dXE-PX-swm"/>
+                                                <constraint firstItem="ic4-y0-75A" firstAttribute="leading" secondItem="BEj-fP-UXe" secondAttribute="leading" id="oei-bi-JyZ"/>
+                                                <constraint firstItem="BEj-fP-UXe" firstAttribute="top" secondItem="ic4-y0-75A" secondAttribute="bottom" constant="8" symbolic="YES" id="qvx-lE-AvB"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="k4H-re-2oI" id="fpa-Zz-lCN"/>
+                                            <outlet property="ratingLabel" destination="ic4-y0-75A" id="9wP-jo-zXG"/>
                                             <outlet property="subjectsLabel" destination="BEj-fP-UXe" id="wVq-p9-bae"/>
                                             <segue destination="7Ud-B8-8XA" kind="show" identifier="SegueToDetail" id="73s-qD-F4F"/>
                                         </connections>

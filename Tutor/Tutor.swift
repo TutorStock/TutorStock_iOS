@@ -50,10 +50,10 @@ class Tutor: NSObject {
             }
             if ammount != 0{
                 averageRating = ratings / ammount
-                self.price = averageRating
+                self.rating = averageRating
             }
             else{
-                self.price = -1
+                self.rating = -1
             }
         
             

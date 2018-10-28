@@ -19,13 +19,16 @@ class RequestDetailViewController: UIViewController {
     @IBOutlet weak var approvalStatusLabel: UILabel!
     @IBOutlet weak var approveButton: UIButton!
     @IBOutlet weak var rejectButton: UIButton!
+    @IBOutlet weak var ratingButton: UIButton!
     
     var request: Request!
     var db: Firestore!
+    var approval: Int!
     override func viewDidLoad() {
         super.viewDidLoad()
         let user = Auth.auth().currentUser
         db = Firestore.firestore()
+        ratingButton.isHidden = true
         nameLabel.text = request.name
         subjectLabel.text = request.subject
         dateTimeLabel.text = request.getDate()
@@ -61,23 +64,32 @@ class RequestDetailViewController: UIViewController {
                 }
                 else if approval == 1 {
                     self.approvalStatusLabel.text = "Tutor has approved the meeting"
+                    self.ratingButton.isHidden = false
                 }
                 else if approval == -1 {
                     self.approvalStatusLabel.text = "Tutor has rejected meeting"
                 }
+                self.approval = approval
             }
         }
     }
     
+    @IBAction func ratingButton(_ sender: Any) {
+        self.performSegue(withIdentifier: "SegueToRating", sender: nil)
+    }
     
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "SegueToRating"{
+            let vc = segue.destination as! RatingViewController
+            vc.tutor_id = self.request.tutor_id
+        }
     }
-    */
+    
 
 }
